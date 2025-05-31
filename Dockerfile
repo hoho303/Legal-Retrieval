@@ -23,7 +23,8 @@ RUN pip install -r requirements.txt
 # CMD ["/bin/bash"]
 
 
-RUN chmod -R +x scripts/
 
 EXPOSE 8000
-CMD ["scripts/run.sh"]
+
+RUN chmod -R +x scripts/
+CMD ["sh", "scripts/run.sh"]
