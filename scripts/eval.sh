@@ -1,0 +1,1 @@
+python eval.py --json_dir articles_parsing/ --qa_file data/legal_QA.json --k 5

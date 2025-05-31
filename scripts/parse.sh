@@ -1,0 +1,1 @@
+python src/parsing.py --input data --output articles_parsing/

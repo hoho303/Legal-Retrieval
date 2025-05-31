@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: legal-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: legal-pod
+  template:
+    metadata:
+      labels:
+        app: legal-pod
+    spec:
+      containers:
+      - name: mylegalcontainer
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
+        ports:
+        - containerPort: 8000
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mylb
+spec:
+  type: LoadBalancer
+  selector:
+    app: legal-pod
+  ports:
+  - port: 8000 # Service IP Port
+    targetPort: 8000 # Container Port
